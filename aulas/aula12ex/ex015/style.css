@@ -8,6 +8,7 @@ body{
     background-color: rgba(107, 107, 241, 0.494);
 }
 
+
 header, section, footer{
     color: white;
     
@@ -37,6 +38,10 @@ img{
     border-radius: 30%; 
     padding: 15px; 
     height: 300px;
+}
+
+div#res{
+    padding: 25px;
 }
 
 
