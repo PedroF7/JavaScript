@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        div{
+            padding-top: 40px;
+        }
+
+        #res{
+            font-weight: bolder;
+            font-size: 1.5em;
+        }
+
+        .uni{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <button onclick="clicar()">Converter</button>
+
+    <div id="res"></div>
+
+    <div id="km" class="uni"></div>
+    <div id="hm" class="uni"></div>
+    <div id="dam" class="uni"></div>
+    <div id="dm" class="uni"></div>
+    <div id="cm" class="uni"></div>
+    <div id="mm" class="uni"></div>
+
+    <script>
+        function clicar(){
+        var m = window.prompt('Digite uma distância em metros(m)')
+        var km = window.document.getElementById('km')
+        var hm = window.document.getElementById('hm')
+        var dam = window.document.getElementById('dam')
+        var dm = window.document.getElementById('dm')
+        var cm = window.document.getElementById('cm')
+        var mm = window.document.getElementById('mm')
+        var res = window.document.getElementById('res')
+        
+        var skm = Number.parseFloat(m/1000).toFixed(2)
+        var shm = Number.parseFloat(m/100) .toFixed(2)
+        var sdam = Number.parseFloat(m/10) .toFixed(2)
+        var sdm = Number.parseFloat(m * 10).toFixed(2)
+        var scm = Number.parseFloat(m * 100) .toFixed(2)
+        var smm = Number.parseFloat(m * 1000) .toFixed(2)
+
+        res.innerHTML = (`A distância de ${m}`).replace(/\./g, ",")  + (' metros, corresponde a..')
+        
+        km.innerHTML = (`${skm}`.replace('.', ',') + ' quilômetros (Km)')
+        hm.innerHTML = (`${shm}`.replace('.', ',') + ' hectômetro (hm)')
+        dam.innerHTML = (`${sdam}`.replace('.', ',') + ' decâmetro (dam)')
+        dm.innerHTML = (`${sdm}` .replace('.', ',') + ' decímetro (dm)')
+        cm.innerHTML = (`${scm}` .replace('.', ',') + ' centímetros (cm)')
+        mm.innerHTML = (`${smm}` .replace('.', ',') + ' milímetros (mm)')
+        
+        }
+    </script>
+</body>
+</html>
