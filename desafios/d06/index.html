@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperaturas</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        div#res{
+            font-size: 1.5em;
+            font-weight: bolder;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <button onclick="clicar()">Converter</button>
+    <p id="p">Clique no botão acima para iniciar.</p>
+    <div id="res"></div>
+
+    <p id="kel"></p>
+    <p id="fahr"></p>
+
+    <script>
+        function clicar(){
+        var cels = window.prompt('Digite uma temperatura em °C (Celsius)');
+        var fah = ((parseFloat(cels) * 9/5) + 32).toFixed(2);
+        var kelv = (273.15 + parseFloat(cels)).toFixed(2);
+        var res = window.document.getElementById('res');
+        var p = window.document.getElementById('p');
+        
+        var kel = window.document.getElementById('kel');
+        var fahr = window.document.getElementById('fahr');
+
+        res.innerHTML = ('A temperatura de ' + cels.replace(".", ",") + '°C, corresponde a...');
+        p.style.display = 'none';
+        kel.innerHTML = kelv.replace(".", ",") + '°K (Kelvin)';
+        fahr.innerHTML = fah.replace(".", ",") + '°F (Fahrenheit)';
+        }
+    </script>
+</body>
+</html>
