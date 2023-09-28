@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> $</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        div{
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor R$ -> $</h1>
+    <button onclick="clicar()">Converter</button>
+    <div id="res">Clique no botão acima para iniciar.</div>
+
+    <script>
+        function clicar(){
+            var real = window.prompt('Quantos R$ você tem na carteira?')
+            var dolar = (real * 5.04).toFixed(2)
+            var res = window.document.getElementById('res')
+
+            res.innerHTML = "Com este valor em R$" + (real).replace(".",",") + " você terá $" + (dolar).replace(".",",") + " dólares"
+        }
+    </script>
+</body>
+</html>
