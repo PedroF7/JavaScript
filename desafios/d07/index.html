@@ -22,7 +22,7 @@
     <script>
         function clicar(){
             var real = window.prompt('Quantos R$ você tem na carteira?')
-            var dolar = (real * 5.04).toFixed(2)
+            var dolar = (real/5.15).toFixed(2)
             var res = window.document.getElementById('res')
 
             res.innerHTML = "Com este valor em R$" + (real).replace(".",",") + " você terá $" + (dolar).replace(".",",") + " dólares"

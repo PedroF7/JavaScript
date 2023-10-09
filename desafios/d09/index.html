@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajustar Salário</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        div{
+            padding-top: 10px;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajustar Salário</h1>
+    <button onclick="clicar()">Reajustar Salário</button>
+    <p style="padding-top: 10px;" id="p">Clique no botão acima para iniciar</p>
+    <h2 id="h2"></h2>
+    <div id="p1"></div>
+    <div id="p2"></div>
+    <div id="p3"></div>
+</body>
+    <script>
+        function clicar(){
+            var p = window.document.getElementById('p')
+            p.style.display = 'none'
+            
+            var nf = window.prompt('Qual é o nome do funcionário?')
+            var sa = window.prompt(`Qual é o salário de ${nf}?`)
+            var porc = window.prompt(`O salário de ${nf} será reajustado em qual porcentagem?`)
+
+            
+            var porcA = Number(porc * sa)/100
+            var aumen = Number(sa) - porcA
+            var porcSo = Number(porcA) + Number(sa)
+
+            var p1 = window.document.getElementById('p1')
+            var p2 = window.document.getElementById('p2')
+            var p3 = window.document.getElementById('p3')
+
+            p1.innerHTML = `O salário atual era R$ ${sa}`
+            p2.innerHTML = `Com um aumento de ${porc}%, o salário vai aumentar R$ ${porcA.toFixed(2).replace(".",",")}`
+            p3.innerHTML = `E a parti daí, ${nf} vai passar a ganhar R$ ${porcSo.toFixed(2).replace(".",",")}`
+
+        }
+    </script>
+</html>
