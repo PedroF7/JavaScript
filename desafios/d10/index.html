@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button{
+            height: 50px;
+            width: 100px;
+        }
+
+        .equacao, #equa{
+            display: none;
+        }
+
+        #blue{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resolvendo Bhaskara</h1>
+    <button onclick="clicar()">Calcular</button>
+    <p>Considerando uam equação no formato <strong style="font-style: italic;">ax² + bx + c</strong> = 0, aperte o botão acima para calcular o valor de Δ</p>
+
+    <p id="equacatual"></p>
+    <p id="calc"></p>
+    <p id="val"></p>
+    
+    <script>
+        function clicar(){
+            var a = window.prompt('Qual o valor de a?')
+            var b = window.prompt('Qual o valor de b?')
+            var c = window.prompt('Qual o valor de c?')
+
+            var bhask = b*b - 4*a*c
+
+            var equa = window.document.getElementById('equacatual')
+            equa.innerHTML = `A equação atual é <strong>${a}x² + ${b}x + ${c} = 0</strong>`
+
+            var calc = window.document.getElementById('calc')
+            calc.innerHTML = `O cálculo realizado será: <strong>Δ = ${b}² - 4. ${a} . ${c}</strong>`
+
+            var val = window.document.getElementById("val")
+            val.innerHTML = `O valor calculado foi <strong id="blue">Δ = ${bhask}</strong> `
+        }
+    </script>
+</body>
+</html>

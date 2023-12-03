@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button{
+            height: 50px;
+            width: 100px;
+        }
+
+        #green{
+            background-color: lightgreen;
+        }
+
+        #red{
+            background-color: rgb(223, 101, 101);
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Ano Bissexto</h1>
+    <button onclick="clicar()">Verificar</button>
+    <h2 id="h2"></h2>
+    <p id="p">Informe um ano para saber se ele é bissexto</p>
+
+    <script>
+        function clicar(){
+        var ano = window.prompt('Qual é o ano que você quer verificar?')
+
+        var h2 = window.document.getElementById("h2")
+        var p = window.document.getElementById("p")
+
+        h2.innerHTML = `Analisando o ano de 2010...`
+
+        
+        if (ano % 4 == 0){
+            p.innerHTML = `o ano de ${ano} <strong id="green">É BISSEXTO</strong> ✅`
+        } else{
+            p.innerHTML = `o ano de ${ano} <strong id="red">NÃO É BISSEXTO</strong> ❌`
+        }
+        }
+    </script>
+</body>
+</html>
