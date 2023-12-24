@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Contador</title>
+    <link rel="shortcut icon" href="favicon-calculadora.png" type="image/x-icon">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height: 100vh;
+            background-color: rgba(107, 107, 241, 0.494);
+        }
+
+        header{
+            width: 100%;
+            color: white;
+            text-align: center;
+            margin: 18px 10px;
+        }
+
+        section{
+            background-color: white;
+            min-height: 100px;
+            min-width: 300px;
+            max-width: 500px;
+            max-height: 300px;
+            margin: auto;
+            padding: 23px;
+            border-radius: 20px;
+        }
+
+        section input{
+            margin-top: 25px;
+            outline: none;
+        }
+
+        section input[type=number]{
+            margin-left: 8px;
+        }
+
+        section button{
+            margin-top: 15px;
+            padding: 10px 13px;
+        }
+
+        div{
+            padding-top: 15px;
+        }
+
+        footer{
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos Contar</h1>
+    </header>
+
+    <section>
+            <p><label for="iinicio">Início<input type="number" name="inicio" id="iinicio"></label></p>
+
+            <p><label for="ifim">Fim<input type="number" name="fim" id="ifim"></label></p>
+
+            <p><label for="ipasso">Passo<input type="number" name="passo" id="ipasso"></label></p>
+
+            <button onclick="contar()">Contar</button>
+
+        <div id="res">
+            Preparando a Contagem...
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy Pedro Freitas</p>
+    </footer>
+
+    <script>
+
+        function contar(){
+        var inicio = window.document.getElementById("iinicio")
+        var fim = window.document.getElementById("ifim")
+        var passo = window.document.getElementById("ipasso")
+
+        var res = window.document.getElementById("res")
+        
+        if (inicio.value.length == 0 || fim.value.length == 0 || passo.value.length == 0){
+            res.innerHTML = "Impossível Contar!"
+            window.alert("Preencha todos os dados")
+            } else{
+                res.innerHTML = "Contando: <br>"
+                var i = Number(inicio.value)
+                var f = Number(fim.value)
+                var p = Number(passo.value)
+                if (p <= 0){
+                    window.alert("Passo Inválido! Considerando Passo 1")
+                    p = 1
+                }
+            }
+
+            if (i < f){
+                // Contagem Crescente
+                for (i; i <= f; i += p){
+                res.innerHTML += `${i} \u{1F449}`
+             }
+            } else{
+                // Contagem Regressiva
+                for (i; i >= f; i -= p){
+                res.innerHTML += `${i} \u{1F449}`
+            }
+            }
+
+            res.innerHTML += '\u{1f3c1}'
+        }
+    </script>
+</body>
+</html>
