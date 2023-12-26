@@ -58,8 +58,9 @@
             padding: 10px 13px;
         }
 
-        div{
-            padding-top: 15px;
+        select{
+            display: flex;
+            margin-top: 25px;
         }
 
         footer{
@@ -77,12 +78,10 @@
             <p><label for="inum">Número:<input type="number" name="num" id="inum"></label></p>
 
             <button onclick="tabuada()">Gerar Tabuada</button>
-
-        <div id="res">
-            <select name="" id="">
-                
+            
+            <select name="nres" id="res" size="10">
+                <option>Digite um Número acima</option>
             </select>
-        </div>
     </section>
 
     <footer>
@@ -91,19 +90,22 @@
 
     <script>
         function tabuada(){
-            var num = window.document.getElementById("inum");
-            var li = document.getElementsByTagName("li");
-            var ul = window.document.getElementsByTagName("ul");
-            var res = window.document.getElementById("res")
+            var num = window.document.querySelector("input")
+            var res = window.document.querySelector("select")
+
+            c = 1
+
+            res.innerHTML = ""
 
             if (num.value.length == 0){
-                window.alert("Insira um Número")
-                res.innerHTML = "Digite um número acima"
-                } else{         
-                for (var n1 = Number(num.value); n1 <= 0; n1++){
-                res.innerHTML =  n1
+                window.alert("Digite um Número!")
+            } else{
+                for (var n = Number(num.value); c <= 10; c++){
+                    var item = document.createElement('option')
+                    item.text = `${n} x ${c} = ${n*c}`
+                    res.appendChild(item)
+                }
             }
-        }
         }
     </script>
 </body>
